@@ -1,0 +1,32 @@
+{
+    "US": {
+        "multiplier": 1,
+        "currency": "USD",
+        "symbol": "$",
+        "locale": "en-US"
+    },
+    "VN": {
+        "multiplier": 24000,
+        "currency": "VND",
+        "symbol": "₫",
+        "locale": "vi-VN"
+    },
+    "JP": {
+        "multiplier": 150,
+        "currency": "JPY",
+        "symbol": "¥",
+        "locale": "ja-JP"
+    },
+    "CH": {
+        "multiplier": 0.88,
+        "currency": "CHF",
+        "symbol": "CHF",
+        "locale": "de-CH"
+    },
+    "MA": {
+        "multiplier": 10.1,
+        "currency": "MAD",
+        "symbol": "DH",
+        "locale": "ar-MA"
+    }
+}

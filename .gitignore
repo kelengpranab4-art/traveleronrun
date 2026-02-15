@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+*.log
+backend/public/data/*.json
+backend/data/bookings.json
+__pycache__/
+.env

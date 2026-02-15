@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driftline Travel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+  <header class="site-header">
+    <nav class="nav">
+      <div class="brand">Driftline Travel</div>
+      <div class="nav-links">
+        <a href="#destinations" class="nav-link">Destinations</a>
+        <a href="#itinerary" class="nav-link">Itinerary</a>
+        <a href="#book" class="nav-link">Book</a>
+        <a href="#support" class="nav-link">Support</a>
+      </div>
+      <button class="ghost-button">Call an Expert</button>
+    </nav>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Tailor-made escapes, curated by locals</p>
+        <h1>Design a trip that moves at your pace.</h1>
+        <p class="lead">
+          Explore cinematic landscapes, boutique stays, and flexible planning. Driftline pairs you with a human
+          concierge and a smart itinerary engine for the perfect balance.
+        </p>
+        <div class="hero-actions">
+          <div class="search-box">
+            <input id="searchInput" type="text" placeholder="Search beaches, cities, or mountain air" />
+            <button id="searchButton">Search</button>
+          </div>
+          <div class="filters">
+            <label>
+              Region
+              <select id="regionFilter">
+                <option value="">All regions</option>
+                <option value="Island">Island</option>
+                <option value="City">City</option>
+                <option value="Mountains">Mountains</option>
+                <option value="Desert">Desert</option>
+                <option value="Wilderness">Wilderness</option>
+              </select>
+            </label>
+            <div class="chip-row">
+              <button class="chip" data-tag="beach">Beach</button>
+              <button class="chip" data-tag="culture">Culture</button>
+              <button class="chip" data-tag="adventure">Adventure</button>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div>
+            <h3>98%</h3>
+            <p>Traveler satisfaction</p>
+          </div>
+          <div>
+            <h3>120+</h3>
+            <p>Local partners</p>
+          </div>
+          <div>
+            <h3>24/7</h3>
+            <p>Live support</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <p>Featured journey</p>
+          <span id="featuredBadge">Loading</span>
+        </div>
+        <img id="featuredImage" alt="Featured destination" />
+        <div class="hero-card-body">
+          <h2 id="featuredTitle">Loading...</h2>
+          <p id="featuredSummary"></p>
+          <div class="hero-card-meta">
+            <span id="featuredPrice"></span>
+            <span id="featuredSeason"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="destinations" class="section">
+      <div class="section-header">
+        <h2>Handpicked destinations</h2>
+        <p>Every trip is crafted for energy, seasonality, and the way you travel.</p>
+      </div>
+      <div id="destinationGrid" class="destination-grid"></div>
+    </section>
+
+    <section id="itinerary" class="section split">
+      <div class="panel">
+        <h2>Smart itinerary studio</h2>
+        <p>Pick a destination card to build a day-by-day plan from our Python itinerary engine.</p>
+        <div class="itinerary-card">
+          <div class="itinerary-header">
+            <div>
+              <h3 id="itineraryTitle">Select a destination</h3>
+              <p id="itinerarySubtitle">We will craft a multi-day outline in seconds.</p>
+            </div>
+            <button id="refreshItinerary" class="ghost-button">Regenerate</button>
+          </div>
+          <div id="itineraryContent" class="itinerary-content">
+            <p class="muted">Choose a destination to load suggestions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel" id="book">
+        <h2>Book your trip</h2>
+        <p>Lock in dates with a fully refundable deposit. Confirmation arrives instantly.</p>
+        <form id="bookingForm" class="booking-form">
+          <label>
+            Destination
+            <select id="bookingDestination" required></select>
+          </label>
+          <label>
+            Full name
+            <input type="text" id="bookingName" required />
+          </label>
+          <label>
+            Email
+            <input type="email" id="bookingEmail" required />
+          </label>
+          <label>
+            Travel date
+            <input type="date" id="bookingDate" required />
+          </label>
+          <label>
+            Guests
+            <input type="number" id="bookingGuests" min="1" max="12" value="2" required />
+          </label>
+          <button type="submit">Confirm booking</button>
+          <p id="bookingStatus" class="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="support" class="section">
+      <div class="section-header">
+        <h2>Your bookings</h2>
+        <p>Enter an email to see confirmed trips and pricing details.</p>
+      </div>
+      <div class="bookings-panel">
+        <div class="booking-search">
+          <input id="bookingLookup" type="email" placeholder="you@example.com" />
+          <button id="bookingLookupBtn">Find bookings</button>
+        </div>
+        <div id="bookingList" class="booking-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <h3>Driftline Travel</h3>
+      <p>Curated itineraries with real humans behind every recommendation.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>hello@driftline.travel</p>
+      <p>+1 (555) 019-4242</p>
+    </div>
+    <div>
+      <h4>Experience</h4>
+      <p>Concierge booking · 24/7 support · Flexible policies</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
