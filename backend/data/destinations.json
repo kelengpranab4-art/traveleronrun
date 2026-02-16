@@ -8,10 +8,22 @@
     "days": 4,
     "rating": 4.7,
     "season": "Nov–Apr",
-    "tags": ["beach", "snorkel", "sunset"],
+    "tags": [
+      "beach",
+      "snorkel",
+      "sunset"
+    ],
     "summary": "Turquoise bays, reef snorkeling, and sunset markets.",
-    "highlights": ["Sao Beach", "Night Market", "Hon Thom cable car"],
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Sao Beach",
+      "Night Market",
+      "Hon Toms cable car"
+    ],
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      10.2289,
+      103.9572
+    ]
   },
   {
     "id": "d2",
@@ -22,10 +34,22 @@
     "days": 5,
     "rating": 4.9,
     "season": "Mar–May",
-    "tags": ["temples", "tea", "culture"],
+    "tags": [
+      "temples",
+      "tea",
+      "culture"
+    ],
     "summary": "Lantern-lit alleys, tea ceremonies, and bamboo groves.",
-    "highlights": ["Fushimi Inari", "Arashiyama", "Gion walking tour"],
-    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Fushimi Inari",
+      "Arashiyama",
+      "Gion walking tour"
+    ],
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      35.0116,
+      135.7681
+    ]
   },
   {
     "id": "d3",
@@ -36,10 +60,23 @@
     "days": 6,
     "rating": 4.8,
     "season": "Dec–Mar",
-    "tags": ["ski", "lakes", "trains", "adventure"],
+    "tags": [
+      "ski",
+      "lakes",
+      "trains",
+      "adventure"
+    ],
     "summary": "Glacier viewpoints, lake cruises, and snow-town evenings.",
-    "highlights": ["Jungfraujoch", "Interlaken", "Luzern lake"],
-    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Jungfraujoch",
+      "Interlaken",
+      "Luzern lake"
+    ],
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      46.6863,
+      7.8632
+    ]
   },
   {
     "id": "d4",
@@ -50,10 +87,23 @@
     "days": 4,
     "rating": 4.6,
     "season": "Sep–Nov",
-    "tags": ["souks", "riads", "desert", "adventure"],
+    "tags": [
+      "souks",
+      "riads",
+      "desert",
+      "adventure"
+    ],
     "summary": "Spice markets, rooftop riads, and a night under the stars.",
-    "highlights": ["Jemaa el-Fnaa", "Atlas day trip", "Agafay camp"],
-    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Jemaa el-Fnaa",
+      "Atlas day trip",
+      "Agafay camp"
+    ],
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      31.6295,
+      -7.9811
+    ]
   },
   {
     "id": "d5",
@@ -64,10 +114,23 @@
     "days": 7,
     "rating": 4.9,
     "season": "Nov–Feb",
-    "tags": ["trek", "glacier", "wild", "adventure"],
+    "tags": [
+      "trek",
+      "glacier",
+      "wild",
+      "adventure"
+    ],
     "summary": "Epic hikes, glacier walls, and wind-carved vistas.",
-    "highlights": ["Fitz Roy", "Perito Moreno", "Laguna de los Tres"],
-    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Fitz Roy",
+      "Perito Moreno",
+      "Laguna de los Tres"
+    ],
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      -49.3333,
+      -72.8833
+    ]
   },
   {
     "id": "d6",
@@ -78,9 +141,130 @@
     "days": 3,
     "rating": 4.5,
     "season": "Oct–Mar",
-    "tags": ["dunes", "camp", "stargaze", "adventure"],
+    "tags": [
+      "dunes",
+      "camp",
+      "stargaze",
+      "adventure"
+    ],
     "summary": "Camel ride into the dunes and a lantern-lit camp.",
-    "highlights": ["Sunrise dunes", "Berber music", "Sandboard"],
-    "image": "https://images.unsplash.com/photo-1456428199391-a3b1cb5e93ab?q=80&w=1600&auto=format&fit=crop"
+    "highlights": [
+      "Sunrise dunes",
+      "Berber music",
+      "Sandboard"
+    ],
+    "image": "https://images.unsplash.com/photo-1456428199391-a3b1cb5e93ab?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      31.0802,
+      -3.9855
+    ]
+  },
+  {
+    "id": "d7",
+    "name": "Icelandic Aurora",
+    "country": "Iceland",
+    "region": "Mountains",
+    "pricePerPerson": 1450,
+    "days": 5,
+    "rating": 4.9,
+    "season": "Oct–Mar",
+    "tags": [
+      "aurora",
+      "hotspring",
+      "arctic",
+      "adventure"
+    ],
+    "summary": "Dance of the northern lights and thermal lagoon dips.",
+    "highlights": [
+      "Blue Lagoon",
+      "Skógafoss",
+      "Black Sand Beach"
+    ],
+    "image": "https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      64.1265,
+      -21.8174
+    ]
+  },
+  {
+    "id": "d8",
+    "name": "Santorini Sunsets",
+    "country": "Greece",
+    "region": "Island",
+    "pricePerPerson": 980,
+    "days": 4,
+    "rating": 4.8,
+    "season": "May–Sep",
+    "tags": [
+      "beach",
+      "wine",
+      "history",
+      "culture"
+    ],
+    "summary": "Whitewashed cliffs and Aegean blue horizons.",
+    "highlights": [
+      "Oia sunset",
+      "Akrotiri",
+      "Red Beach"
+    ],
+    "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      36.3932,
+      25.4615
+    ]
+  },
+  {
+    "id": "d9",
+    "name": "Namibian Sands",
+    "country": "Namibia",
+    "region": "Desert",
+    "pricePerPerson": 1120,
+    "days": 6,
+    "rating": 4.7,
+    "season": "May–Oct",
+    "tags": [
+      "safari",
+      "desert",
+      "wild",
+      "adventure"
+    ],
+    "summary": "Infinite dunes and ancient acacia skeletal forests.",
+    "highlights": [
+      "Deadvlei",
+      "Dune 45",
+      "Etosha safari"
+    ],
+    "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      -24.5833,
+      15.3333
+    ]
+  },
+  {
+    "id": "d10",
+    "name": "Banff Wilderness",
+    "country": "Canada",
+    "region": "Mountains",
+    "pricePerPerson": 850,
+    "days": 5,
+    "rating": 4.8,
+    "season": "Jun–Sep",
+    "tags": [
+      "trek",
+      "lake",
+      "wild",
+      "adventure"
+    ],
+    "summary": "Turquoise alpine lakes and jagged limestone peaks.",
+    "highlights": [
+      "Moraine Lake",
+      "Lake Louise",
+      "Cave and Basin"
+    ],
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop",
+    "coords": [
+      51.1784,
+      -115.5708
+    ]
   }
 ]

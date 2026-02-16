@@ -81,9 +81,25 @@ class Handler(BaseHTTPRequestHandler):
                 "Day 4: Flexible free time"
             ]
 
+        # Simulated weather logic
+        import random
+        conditions = ["Sunny", "Cloudy", "Showers", "Perfect"]
+        weather = {
+            "temp": random.randint(18, 28),
+            "condition": random.choice(conditions),
+            "humidity": random.randint(40, 70)
+        }
+
+        # Handle colder climates
+        if any(x in destination.lower() for x in ["alpine", "iceland", "patagonia", "banff"]):
+            weather["temp"] = random.randint(-5, 12)
+            if weather["temp"] < 0:
+                weather["condition"] = "Snowy"
+
         return self._send_json({
             "destination": destination,
             "itinerary": itinerary,
+            "weather": weather,
             "generatedAt": datetime.utcnow().isoformat() + "Z"
         })
 
