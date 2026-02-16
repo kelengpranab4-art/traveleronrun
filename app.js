@@ -207,7 +207,12 @@ async function fetchDestinations() {
   }
 
   try {
-    const response = await fetch(`/api/destinations?${params.toString()}`, { headers });
+    // Use relative path (api/...) instead of absolute (/api/...)
+    const response = await fetch(`api/destinations?${params.toString()}`, { headers });
+
+    // If we get a 404 or non-ok response, try fetching the static file as a fallback
+    if (!response.ok) throw new Error('API not available');
+
     const data = await response.json();
     state.destinations = data.items || [];
     renderDestinations();
@@ -215,7 +220,21 @@ async function fetchDestinations() {
     updatePriceSummary();
     if (state.destinations.length) renderFeatured(state.destinations[0]);
   } catch (err) {
-    console.error('Failed to fetch destinations', err);
+    console.warn('API fetch failed, falling back to static data:', err);
+    try {
+      // Fallback for static hosting (GitHub Pages)
+      // Since public/ is the root, and data/ is inside public/ in our repo structure during build
+      // OR if we are in the subpath, it should be relative to the index.html
+      const fallbackResponse = await fetch('data/destinations.json');
+      const staticData = await fallbackResponse.json();
+      state.destinations = staticData; // destinations.json is a flat array
+      renderDestinations();
+      updateBookingSelect();
+      updatePriceSummary();
+      if (state.destinations.length) renderFeatured(state.destinations[0]);
+    } catch (fallbackErr) {
+      console.error('Failed to load both API and static fallback', fallbackErr);
+    }
   }
 }
 
@@ -259,7 +278,7 @@ async function loadItinerary() {
     if (simulatedCountry) {
       headers['x-simulated-country'] = simulatedCountry;
     }
-    const response = await fetch(`/api/itinerary?destinationId=${state.selectedId}`, { headers });
+    const response = await fetch(`api/itinerary?destinationId=${state.selectedId}`, { headers });
     const data = await response.json();
 
     // Render Weather
@@ -305,7 +324,7 @@ async function submitBooking(event) {
       headers['x-simulated-country'] = simulatedCountry;
     }
 
-    const response = await fetch('/api/bookings', {
+    const response = await fetch('api/bookings', {
       method: 'POST',
       headers,
       body: JSON.stringify(payload)
@@ -369,7 +388,7 @@ async function lookupBookings() {
     if (simulatedCountry) {
       headers['x-simulated-country'] = simulatedCountry;
     }
-    const response = await fetch(`/api/bookings?email=${encodeURIComponent(email)}`, { headers });
+    const response = await fetch(`api/bookings?email=${encodeURIComponent(email)}`, { headers });
     const data = await response.json();
     renderBookings(data.items || []);
   } catch (err) {
