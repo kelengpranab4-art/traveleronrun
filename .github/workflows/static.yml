@@ -1,0 +1,25 @@
+name: Deploy Static to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/public/**'
+      - '.github/workflows/static.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: backend/public
+          branch: gh-pages
