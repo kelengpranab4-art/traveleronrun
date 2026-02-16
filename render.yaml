@@ -1,0 +1,23 @@
+services:
+  # Python Itinerary Service (Private)
+  - type: pvt-web-service
+    name: itinerary-service
+    runtime: python
+    buildCommand: ""
+    startCommand: "python3 python-service/recommender.py"
+    envVars:
+      - key: PORT
+        value: 5055
+
+  # Node Backend & UI (Public)
+  - type: web
+    name: driftline-travel
+    runtime: node
+    plan: free
+    buildCommand: "cd backend && npm install"
+    startCommand: "cd backend && node server.js"
+    envVars:
+      - key: PY_SERVICE_URL
+        value: http://itinerary-service:5055
+      - key: PORT
+        value: 10000
