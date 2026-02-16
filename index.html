@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Driftline Travel - Design journeys that move with you. Cinematic landscapes, boutique hideaways, and intuitive planning." />
+  <meta property="og:title" content="Driftline Travel | Premium Curated Journeys" />
+  <meta property="og:description"
+    content="Experience world-class escapes with Driftline. Locally curated, smart-engineered itineraries." />
+  <title>Driftline Travel | Premium Curated Journeys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="brand">
+      Driftline Travel
+    </div>
+    <div class="nav-links">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#destinations" class="nav-link">Explore</a>
+      <a href="#itinerary" class="nav-link">Studio</a>
+      <a href="#book" class="nav-link">Plan Trip</a>
+      <a href="#dashboard" class="nav-link">My Trips</a>
+    </div>
+    <div class="nav-actions">
+      <button id="darkModeToggle" class="icon-button">🌙</button>
+      <button class="ghost-button">Expert Support</button>
+    </div>
+  </nav>
+
+  <main id="view-container">
+    <!-- VIEW: HOME -->
+    <section id="view-home" class="view">
+      <div class="hero-wrapper">
+        <div class="hero-bg">
+          <img src="hero_travel_background.png" alt="Travel Background" class="hero-image" />
+          <div class="hero-overlay"></div>
+        </div>
+        <header class="hero">
+          <div class="hero-text reveal">
+            <p class="eyebrow">World-class escapes, locally curated</p>
+            <h1>Design journeys that move with you.</h1>
+            <p class="lead">
+              Cinematic landscapes, boutique hideaways, and intuitive planning. Driftline combines human expertise with
+              a
+              smart engine for the ultimate balance.
+            </p>
+            <div class="hero-actions">
+              <a href="#destinations" id="btn-explore-main" class="primary-button">Explore Destinations</a>
+              <a href="#itinerary" class="ghost-button secondary">Try Itinerary Studio</a>
+            </div>
+          </div>
+          <div class="hero-featured-card reveal">
+            <div class="glass-panel featured-inner">
+              <div class="featured-img-box">
+                <img id="featuredImage" src="" alt="Featured destination" />
+                <span id="featuredBadge" class="badge">Trending</span>
+              </div>
+              <div class="featured-content">
+                <h2 id="featuredTitle">Loading...</h2>
+                <p id="featuredSummary" class="text-sm muted"></p>
+                <div class="featured-footer">
+                  <span id="featuredPrice" class="price"></span>
+                  <a href="#itinerary" class="icon-link">→</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <!-- NEW SECTION: DISCOVERY SLIDER -->
+      <section class="discovery-section reveal">
+        <div class="section-container">
+          <div class="section-header">
+            <p class="eyebrow">Curated Picks</p>
+            <h2>The Discovery Collection</h2>
+          </div>
+          <div class="slider-container" id="discoverySlider">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW: DESTINATIONS -->
+    <section id="view-destinations" class="view hidden">
+      <div class="section-header center">
+        <h2>Discover Your Next Drift</h2>
+        <p>Filter by region, vibe, or adventure type.</p>
+      </div>
+      <div class="filter-bar">
+        <div class="search-box">
+          <input id="searchInput" type="text" placeholder="Search destinations..." />
+          <button id="searchButton">Explore</button>
+        </div>
+        <div class="filters-row">
+          <select id="regionFilter">
+            <option value="">All Regions</option>
+            <option value="Island">Island</option>
+            <option value="City">City</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Desert">Desert</option>
+          </select>
+          <div class="chip-row">
+            <button class="chip" data-tag="beach">Beach</button>
+            <button class="chip" data-tag="culture">Culture</button>
+            <button class="chip" data-tag="adventure">Adventure</button>
+          </div>
+        </div>
+      </div>
+      <div id="destinationGrid" class="destination-grid"></div>
+    </section>
+
+    <!-- VIEW: ITINERARY STUDIO -->
+    <section id="view-itinerary" class="view hidden">
+      <div class="split-view">
+        <div class="panel">
+          <div class="section-header">
+            <h2>Itinerary Studio</h2>
+            <p>Select a destination to craft your personalized multi-day plan.</p>
+          </div>
+          <div class="itinerary-card glass-panel">
+            <div class="itinerary-header">
+              <div>
+                <h3 id="itineraryTitle">Select a destination</h3>
+                <div id="weatherDisplay" class="weather-mini hidden"></div>
+                <p id="itinerarySubtitle" class="muted">A smart outline will follow.</p>
+              </div>
+              <button id="refreshItinerary" class="ghost-button">Regenerate</button>
+            </div>
+            <div id="itineraryContent" class="itinerary-content">
+              <p class="muted center-text">Choose a destination from the Explore page to begin.</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-visual">
+          <div id="map" class="glass-panel" style="height: 100%; min-height: 400px; padding: 0; overflow: hidden;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: BOOKING/CHECKOUT -->
+    <section id="view-book" class="view hidden">
+      <div class="booking-container">
+        <div class="booking-card glass-panel">
+          <h2>Complete Your Plan</h2>
+          <p class="muted">Transparent pricing. No hidden fees. Fully refundable.</p>
+
+          <form id="bookingForm" class="booking-form">
+            <div class="form-grid">
+              <label>
+                Destination
+                <select id="bookingDestination" required></select>
+              </label>
+              <label>
+                Travel Date
+                <input type="date" id="bookingDate" required />
+              </label>
+              <label>
+                Full Name
+                <input type="text" id="bookingName" placeholder="John Doe" required />
+              </label>
+              <label>
+                Email Address
+                <input type="email" id="bookingEmail" placeholder="john@example.com" required />
+              </label>
+              <label>
+                Number of Guests
+                <input type="number" id="bookingGuests" min="1" max="12" value="2" required />
+              </label>
+            </div>
+
+            <div class="price-summary glass-panel">
+              <div class="price-row">
+                <span>Price per person</span>
+                <span id="pricePP">...</span>
+              </div>
+              <div class="price-row total">
+                <span>Estimated Total</span>
+                <span id="totalPriceDisplay">...</span>
+              </div>
+            </div>
+
+            <button type="submit" class="primary-button full-width">Confirm & Book Now</button>
+            <p id="bookingStatus" class="status-message"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: DASHBOARD -->
+    <section id="view-dashboard" class="view hidden">
+      <div class="section-header">
+        <h2>Your Collections</h2>
+        <p>Manage your confirmed trips and upcoming adventures.</p>
+      </div>
+      <div class="dashboard-grid">
+        <div class="bookings-panel glass-panel">
+          <div class="lookup-header">
+            <input id="bookingLookup" type="email" placeholder="Enter your booking email" />
+            <button id="bookingLookupBtn" class="accent-button">Find Bookings</button>
+          </div>
+          <div id="bookingList" class="booking-list">
+            <p class="muted center-text">Enter your email to view your confirmed trips.</p>
+          </div>
+        </div>
+        <div class="wishlist-panel glass-panel">
+          <h3>Saved Gems</h3>
+          <p class="muted">Places you want to drift to next.</p>
+          <div class="wishlist-mock">
+            <div class="wishlist-item">Kyoto Serenity <span class="tag">Culture</span></div>
+            <div class="wishlist-item">Phu Quoc Escape <span class="tag">Island</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <h3>Driftline Travel</h3>
+      <p>Human-led discovery. Machine-powered precision.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#destinations">All Destinations</a>
+        <a href="#itinerary">Studio</a>
+        <a href="#book">Book a Trip</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p>hello@driftline.travel</p>
+        <p>+1 (555) 010-4242</p>
+      </div>
+      <div class="footer-col">
+        <h4>Experience</h4>
+        <p>Concierge Booking</p>
+        <p>24/7 Live Support</p>
+        <p>Flexible Policies</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
